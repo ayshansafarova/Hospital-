@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,13 +13,13 @@ namespace HospitalManagement
             Console.WriteLine("Enter the password: ");
             if (Console.ReadLine() == "admin")
             {
+                //"static" objects have been given in this section, departmentsList and also doctorsList
                 List<Departments> departmentsList = new List<Departments>()
                 {
                         new Departments("Kardiologiya"),
                         new Departments("Radyologiya"),
                         new Departments("Dermatologiya")
                 };
-                //List<Doctors> doctorsList = new List<Doctors>();
                 departmentsList[0].doctorsList = new List<Doctors>()
                 {
                     new Doctors("Zulfiya","Imamaliyeva"),
@@ -83,6 +83,9 @@ namespace HospitalManagement
         }
 
     }
+
+    //this class is created for adding extension methods to the lists
+    //in order to make a difference, I added 1 more 't' to the names of methods which are used for only "doctors" object
     public static class ListExtensions
     {
         public static void ShowList(this List<Departments> list)
@@ -140,17 +143,25 @@ namespace HospitalManagement
         }
         public static void ChangeNameSurnameObject(this List<Doctors> list)
         {
-            string firstName = Console.ReadLine();
-            string secondName = Console.ReadLine();
-            var item = list.Find(x => (x.name + " " + x.surname) == firstName);
-            item.name = item.name.Replace(firstName, secondName);
+            string first = Console.ReadLine();
+            string second = Console.ReadLine();
+            var item = list.Find(x => (x.name == first) || (x.surname == first));
+            if (item.name == first)
+            {
+                item.name = item.name.Replace(first, second);
+            }
+            else {
+                item.surname = item.surname.Replace(first, second);
+            }
             list.ShowListt();
         }
     }
+
+    //there are two classes which can create lots of objects.
     public class Departments
     {
         public string name;
-        public List<Doctors> doctorsList;
+        public List<Doctors> doctorsList; //I gived public access to append doctorsList to DepartmentsList
         public Departments(string Name)
         {
             name = Name;

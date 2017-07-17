@@ -1,7 +1,7 @@
 # Hospital Management
 ## Console App
 
-There are some departments and these doctors. You can add, show, change, remove some details including 8 operations overall
+There are some departments and these departments' doctors. You can add, show, change, remove some details including 8 operations overall
 
 ## Operations
 

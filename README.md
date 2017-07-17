@@ -1,9 +1,9 @@
 # Hospital Management
-##Console App
+## Console App
 
 There are some departments and these doctors. You can add, show, change, remove some details including 8 operations overall
 
-##Operations
+## Operations
 
 - 'add1' - to add a department (Please, enter the name and surname together)
 - 'show1' - to show existing departments list 

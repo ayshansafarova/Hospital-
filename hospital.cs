@@ -161,7 +161,7 @@ namespace HospitalManagement
     public class Departments
     {
         public string name;
-        public List<Doctors> doctorsList; //I gived public access to append doctorsList to DepartmentsList
+        public List<Doctors> doctorsList = new List<Doctors>(); //I gived public access to append doctorsList to DepartmentsList
         public Departments(string Name)
         {
             name = Name;
